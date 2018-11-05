@@ -26,3 +26,15 @@ durations['shopping'] = durations['shopping'] * durations['total']
 durations['video'] = durations['video'] * durations['total']
 durations['music'] = durations['music'] * durations['total']
 durations['others'] = durations['others'] * durations['total']
+
+
+records = durations
+records['exam_type'] = np.random.randint(3, size=size)
+records['school_type'] = np.random.randint(3, size=size)
+records['sex'] = np.random.randint(2, size=size)
+records['success'] = np.random.randint(low=30, high=100, size=size)
+records['age'] = np.random.randint(low=17, high=19, size=size)
+
+# generate some missing values
+temp = np.random.randint(low=0, high=99, size=10)
+records.loc[temp, 'school_type'] = "?"
